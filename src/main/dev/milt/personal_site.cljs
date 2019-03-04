@@ -3,24 +3,81 @@
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom]]))
 
-(println "This text is printed from src/dev/milt/personal_site.cljs. Go ahead and edit it and see reloading in action.")
 
 (defn multiply [a b] (* a b))
 
 
-;; define your app data so that it doesn't get over-written on reload
-(defonce app-state (atom {:text "Hello world!"}))
-
 (defn get-app-element []
   (gdom/getElement "app"))
 
-(defn hello-world []
-  [:div
-   [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/dev/milt/personal_site.cljs and watch it change!"]])
+(defn headshot
+  []
+  [:img.headshot
+   {:src "img/milt_github.jpeg"
+    :alt "picture_of_milt"}])
+
+(defn links
+  []
+  [:ul.links
+   [:li
+    [:a {:href "https://github.com/milt"}
+     "github"]]
+   [:li
+    [:a {:href "https://twitter.com/miltreder"}
+     "@miltreder"]]
+   [:li
+    [:a {:href "https://yetanalytics.io"}
+     "yet"]]])
+
+(defn header
+  []
+  [:header
+   [headshot]
+   [:div.name
+    [:div.title "Milt Reder"]
+    [:div.subtitle
+     "VP Engineering @ Yet Analytics Inc."]]
+   [links]])
+
+(defn footer
+  []
+  [:footer
+   "Ⓒ 2019 Milton Reder"
+   [:span
+    "Made with "
+    [:a {:href "https://closurescript.org"}
+     "ClojureScript"]
+    " and "
+    [:a {:href "https://figwheel.org/"}
+     "Figwheel"]
+    ", which you should try."]])
+
+(defn content
+  []
+  [:main.content
+   [:section
+    [:h2
+     "Hi!"]
+    [:p "My name is Milt, and I spend most of my time building things with "
+     [:a {:href "https://clojure.org/"}
+      "Clojure"]
+     " and "
+     [:a {:href "https://clojurescript.org/"}
+      "ClojureScript"]
+     "."]
+    [:p "I usually build them at "
+     [:a {:href "https://yetanalytics.io/"}
+      "Yet Analytics"]
+     " alongside a very clever group of people. "]]])
+
+(defn main []
+  [:div.site
+   [header]
+   [content]
+   [footer]])
 
 (defn mount [el]
-  (reagent/render-component [hello-world] el))
+  (reagent/render-component [main] el))
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]
