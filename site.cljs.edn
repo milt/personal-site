@@ -1,0 +1,3 @@
+{:main dev.milt.personal-site
+ :output-to "docs/site.js"
+ :optimizations :advanced}
