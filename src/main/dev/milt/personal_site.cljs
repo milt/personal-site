@@ -26,7 +26,7 @@
     [:a {:href "https://twitter.com/miltreder"}
      "@miltreder"]]
    [:li
-    [:a {:href "https://yetanalytics.com"}
+    [:a {:href "https://www.yetanalytics.com"}
      "yet"]]])
 
 (defn header
@@ -66,7 +66,7 @@
       "ClojureScript"]
      "."]
     [:p "I usually build them at "
-     [:a {:href "https://yetanalytics.com/"}
+     [:a {:href "https://www.yetanalytics.com/"}
       "Yet Analytics"]
      " alongside a very clever group of people. "]]])
 
