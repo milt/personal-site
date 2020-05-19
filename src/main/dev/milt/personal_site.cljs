@@ -42,10 +42,10 @@
 (defn footer
   []
   [:footer
-   "Ⓒ 2019 Milton Reder"
+   "Ⓒ 2020 Milton Reder"
    [:span
     "Made with "
-    [:a {:href "https://closurescript.org"}
+    [:a {:href "https://clojurescript.org"}
      "ClojureScript"]
     " and "
     [:a {:href "https://figwheel.org/"}
